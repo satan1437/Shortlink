@@ -1,0 +1,23 @@
+{% extends 'shortlink/base.html' %}
+
+{% block title %}Shortlink - сокращение ссылок{% endblock %}
+
+{% block content %}
+    {% if request.user.is_authenticated %}
+        <div class="page">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Введите ссылку" aria-label="Введите ссылку"
+                       aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button">Сократить</button>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="page-text">
+            <div class="p-2 bg-primary text-white">Для доступа к сервису вам нужно пройти регистрацию или войти
+                в свой аккаунт.
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,27 @@
+.my-form {
+    width: 40%;
+    margin: 15px auto 0 auto;
+}
+
+.my-form button {
+    margin-bottom: 8px;
+}
+
+.page {
+    margin: 15% auto auto auto;
+    width: 65%;
+}
+
+.page-text {
+    text-align: center;
+}
+
+.errorlist {
+    color: red;
+}
+
+.helptext {
+    padding-left: 5px;
+    color: grey;
+}
+

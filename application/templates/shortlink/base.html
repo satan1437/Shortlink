@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'shortlink/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'shortlink/css/style.css' %}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+{% include 'shortlink/inc/_nav.html' %}
+
+{% if messages %}
+    {% for message in messages %}
+        {% if message.tags == 'error' %}
+            <div class="alert alert-danger" role="alert">
+                {{ message }}
+            </div>
+        {% else %}
+            <div class="alert alert-{{ message.tags }}" role="alert">
+                {{ message }}
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>

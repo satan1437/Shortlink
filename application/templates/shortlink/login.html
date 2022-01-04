@@ -1,0 +1,16 @@
+{% extends 'shortlink/base.html' %}
+
+{% block title %}Shortlink - Аутентификация{% endblock %}
+
+{% block content %}
+    <div class="my-form">
+        <div class="form-control">
+            <h1>Вход в аккаунт:</h1>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-success">Войти</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
