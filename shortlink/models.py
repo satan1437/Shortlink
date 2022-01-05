@@ -4,7 +4,7 @@ import uuid
 from django.db import models
 from django.contrib.auth.models import User
 
-HOST_NAME = 'http://127.0.0.1:8000/'
+HOST_NAME = 'https://shrlnker.herokuapp.com/'
 
 
 class CreateURL(models.Model):
