@@ -8,7 +8,7 @@
         </tr>
         </thead>
         <tbody>
-        {% for item in items %}
+        {% for item in page_obj %}
             <tr>
                 <td>{{ item.url }}</td>
                 <td>{{ item.shorted_url }}</td>
@@ -16,4 +16,7 @@
         {% endfor %}
         </tbody>
     </table>
+    {% if page_obj.has_other_pages %}
+        {% include 'shortlink/inc/_paginator.html' %}
+    {% endif %}
 {% endblock %}

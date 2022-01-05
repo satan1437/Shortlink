@@ -1,6 +1,8 @@
 from django.contrib.auth import login, logout
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.core.paginator import Paginator
+
 from .forms import UserRegisterForm, UserLoginForm, CreateUrlForm
 from .models import CreateURL
 
@@ -31,7 +33,6 @@ def link_redirect(request, hash):
 		url = obj.url
 		return redirect(url)
 	except:
-		messages.warning(request, f'Короткая ссылка не найдена!')
 		return redirect('home')
 
 
@@ -78,4 +79,9 @@ def user_logout(request):
 
 def user_links(request):
 	obj = CreateURL.objects.filter(owner=request.user)
-	return render(request, 'shortlink/links.html', {'items': obj})
+
+	paginator = Paginator(obj, 19)
+	page_number = request.GET.get('page', 1)
+	page_obj = paginator.get_page(page_number)
+
+	return render(request, 'shortlink/links.html', {'page_obj': page_obj})
