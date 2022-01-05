@@ -4,14 +4,19 @@
 
 {% block content %}
     {% if request.user.is_authenticated %}
-        <div class="page">
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Введите ссылку" aria-label="Введите ссылку"
-                       aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button">Сократить</button>
+        <div class="page ">
+            {% if form.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ form.errors }}
                 </div>
-            </div>
+            {% endif %}
+            <form method="post" action="{% url 'home' %}" class="input-group mb-3">
+                {% csrf_token %}
+                {{ form.url }}
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit">Сократить</button>
+                </div>
+            </form>
         </div>
     {% else %}
         <div class="page-text">

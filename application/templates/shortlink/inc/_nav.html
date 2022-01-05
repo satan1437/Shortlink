@@ -4,9 +4,7 @@
         <div class="wrapper">
             {% if request.user.is_authenticated %}
                 <a class="btn btn-primary">Добро пожаловать, {{ user.username }}</a>
-                <button type="button" class="btn btn-primary">
-                    Мои ссылки <span class="badge bg-secondary">0</span>
-                </button>
+                <a class="btn btn-primary" href="{% url 'links' %}">Мои ссылки</a>
                 <a class="btn btn-warning" href="{% url 'logout' %}">Выход</a>
 
             {% else %}

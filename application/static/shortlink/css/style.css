@@ -7,8 +7,15 @@
     margin-bottom: 8px;
 }
 
-.page {
+
+.page > form {
+    display: flex;
+    justify-content: center;
     margin: 15% auto auto auto;
+    width: 65%;
+}
+
+.page p {
     width: 65%;
 }
 
