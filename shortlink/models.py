@@ -34,7 +34,7 @@ class CreateURL(models.Model):
 		return HOST_NAME + self.url_hash
 
 	def __str__(self):
-		return f'{self.owner} | {self.url[:15]}'
+		return f'{self.owner} | {self.url[:35]}'
 
 	class Meta:
 		verbose_name = 'Ссылка'
