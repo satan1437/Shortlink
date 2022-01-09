@@ -3,15 +3,15 @@
 {% block title %}Shortlink - Регистрация{% endblock %}
 
 {% block content %}
-    <div class="my-form">
-    <div class="form-control">
-        <h1>Регистрация аккаунта:</h1>
+    <div class="my-form shadow-for-block">
+        <div class="form-control">
+            <h1>Регистрация аккаунта:</h1>
 
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn btn-success">Отправить</button>
-        </form>
-    </div>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-success">Отправить</button>
+            </form>
+        </div>
     </div>
 {% endblock %}
