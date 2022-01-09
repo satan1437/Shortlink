@@ -1,6 +1,7 @@
-from django.contrib.auth import login, logout
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.contrib.auth import login, logout
+from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 
 from .forms import UserRegisterForm, UserLoginForm, CreateUrlForm
@@ -77,6 +78,7 @@ def user_logout(request):
 	return redirect('login')
 
 
+@login_required
 def user_links(request):
 	obj = CreateURL.objects.filter(owner=request.user)
 
